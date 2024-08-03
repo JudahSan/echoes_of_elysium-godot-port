@@ -1,6 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
-wakatime_logo
+wakatime_logo.jpg
 wakatime_logo.jpg.import
 
 # Godot-specific ignores
