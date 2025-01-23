@@ -1,49 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj8q4geaj2xsg"]
+[gd_scene load_steps=3 format=3 uid="uid://cn6t8tchbbaqm"]
 
-[ext_resource type="FontFile" uid="uid://0k34y7inv3o6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_3g358"]
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_b6ju2"]
+[ext_resource type="Script" path="res://scripts/multiplayer_menu.gd" id="1_12jt7"]
+[ext_resource type="FontFile" uid="uid://pbrbu6kkxj16" path="res://assets/fonts/PixelOperator8.ttf" id="2_7e443"]
 
 [node name="MultiplayerMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_b6ju2")
+script = ExtResource("1_12jt7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -41.0
+offset_right = 211.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="HostGame" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(240, 64)
+[node name="JoinGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1.9, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("1_3g358")
-theme_override_font_sizes/font_size = 24
+size_flags_stretch_ratio = 7.84
+theme_override_fonts/font = ExtResource("2_7e443")
+theme_override_font_sizes/font_size = 30
+text = "Join Game"
+
+[node name="HostGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1.9, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.84
+theme_override_fonts/font = ExtResource("2_7e443")
+theme_override_font_sizes/font_size = 30
 text = "Host Game"
 
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="JoinGame" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(240, 64)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("1_3g358")
-theme_override_font_sizes/font_size = 24
-text = "Join Game
-"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HostGame" to="." method="_on_host_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/JoinGame" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/JoinGame" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HostGame" to="." method="_on_host_game_pressed"]
