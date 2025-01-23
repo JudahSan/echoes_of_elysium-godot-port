@@ -52,7 +52,7 @@ theme_override_constants/shadow_offset_y = 6
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_dayob")
 theme_override_font_sizes/font_size = 64
-text = "Game Title"
+text = "Echoes of Elysium"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -92,6 +92,19 @@ theme_override_font_sizes/font_size = 24
 text = "Options
 "
 
+[node name="Seperator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Multiplayer" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_dayob")
+theme_override_font_sizes/font_size = 24
+text = "Multiplayer
+"
+
 [node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -106,4 +119,5 @@ text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

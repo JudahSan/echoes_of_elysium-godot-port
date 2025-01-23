@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj8q4geaj2xsg"]
+
+[ext_resource type="FontFile" uid="uid://0k34y7inv3o6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_3g358"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_b6ju2"]
+
+[node name="MultiplayerMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b6ju2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HostGame" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_3g358")
+theme_override_font_sizes/font_size = 24
+text = "Host Game"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="JoinGame" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_3g358")
+theme_override_font_sizes/font_size = 24
+text = "Join Game
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HostGame" to="." method="_on_host_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/JoinGame" to="." method="_on_join_game_pressed"]

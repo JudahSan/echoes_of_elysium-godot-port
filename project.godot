@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Music="*res://scenes/music.tscn"
 
+[dotnet]
+
+project/assembly_name="Godot Intro"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/wakatime/plugin.cfg")
