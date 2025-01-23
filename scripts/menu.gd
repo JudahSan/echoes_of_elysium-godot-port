@@ -28,11 +28,40 @@ func _on_multiplayer_pressed():
 	if multiplayer_menu_instance == null:
 		multiplayer_menu_instance = multiplayer_menu_scene.instantiate()
 		add_child(multiplayer_menu_instance)
+		multiplayer_menu_instance.set_main_menu(self)
+
+	if multiplayer_menu_instance.visible:
+		# Show other menu buttons
+		play.visible = true
+		options.visible = true
+		quit.visible = true
+		multiplayer_button.visible = true
+		
+		# Hide multiplayer menu
+		multiplayer_menu_instance.visible = false
+		print("Multiplayer menu hidden.")
+	else:
+		# Hide other menu buttons
+		play.visible = false
+		options.visible = false
+		quit.visible = false
+		multiplayer_button.visible = false
+		
+		# Show multiplayer menu
 		multiplayer_menu_instance.visible = true
 		print("Multiplayer menu instantiated and made visible.")
-	else:
-		multiplayer_menu_instance.visible = not multiplayer_menu_instance.visible
-		print("Toggled multiplayer menu visibility to: ", multiplayer_menu_instance.visible)
+
+func show_main_menu():
+	# Show other menu buttons
+	play.visible = true
+	options.visible = true
+	quit.visible = true
+	multiplayer_button.visible = true
+	
+	# Hide multiple menu
+	if multiplayer_menu_instance != null:
+		multiplayer_menu_instance.visible = false
+	print("Returned to the main menu")
 
 func _on_quit_pressed():
 	get_tree().quit()
